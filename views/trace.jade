@@ -1,0 +1,10 @@
+extend layout
+block content
+	script(type='text/javascript', src="https://maps.googleapis.com/maps/api/js?key=#{gmaps_key}&sensor=true")
+	script(type='text/javascript', src= "jquery-2.0.3.js")
+	script(type='text/javascript', src= "map.js")
+	h3 tracing #{address}
+	div(id="map-canvas", style="height: 500px")
+	script
+		getJsonForIp(#{address});
+	table#result
