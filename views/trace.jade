@@ -1,10 +1,16 @@
 extend layout
 block content
-	script(type='text/javascript', src="https://maps.googleapis.com/maps/api/js?key=#{gmaps_key}&sensor=true")
-	script(type='text/javascript', src= "jquery-2.0.3.js")
-	script(type='text/javascript', src= "map.js")
-	h3 tracing #{address}
-	div(id="map-canvas", style="height: 500px")
-	script
-		getJsonForIp(#{address});
-	table#result
+  script(type='text/javascript', src="https://maps.googleapis.com/maps/api/js?key=#{gmaps_key}&sensor=true")
+  script(type='text/javascript', src= "jquery-2.0.3.js")
+  script(type='text/javascript', src= "map.js")
+  div
+    form(action='/trace',method='get')
+      div(data-role='fieldcontain')
+        label(for='address') Address: 
+           input(id='ip-id',type='text',value='#{address}',placeholder='thomasdeegan.com',name='ip')
+      div(data-role='fieldcontain')   
+        input(type='submit',value='Submit',data-transition='fade', data-theme='c')
+  div(id="map-canvas", style="height: 500px")
+  script
+    getJsonForIp(#{address});
+  table#result

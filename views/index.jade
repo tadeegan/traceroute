@@ -7,7 +7,7 @@ block content
     | Some data centers along the way will block these kind of requests and therefore your route will not be able to be completed.
     | This tool was build using Node.js and the unix tool traceroute.
   div
-    form(action='/trace.json',method='get')
+    form(action='/trace',method='get')
       div(data-role='fieldcontain')
         label(for='address') Address: 
            input(id='ip-id',type='text',value='',placeholder='thomasdeegan.com',name='ip')
